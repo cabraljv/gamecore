@@ -11,8 +11,10 @@ router.get('/', (req, res) => {
 })
 
 
-router.post('/user/insert', upload.single('profile_pic'), UserController.insert)
-router.post('/user/login', UserController.verifica)
-router.post('/post/insert', upload.single('image'), PostController.insert)
-router.post('/comment/add', CommentController.insert)
+router.post('/user', upload.single('profile_pic'), UserController.insert)
+router.post('/user/login', UserController.index)
+router.post('/post', upload.single('image'), PostController.insert)
+router.post('/comment', CommentController.insert)
+router.post('/destaque')
+
 module.exports = router

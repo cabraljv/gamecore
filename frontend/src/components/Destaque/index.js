@@ -18,28 +18,21 @@ export default function Destaque() {
       <Slider {...settings}  >
         <section>
           <Background src={bg} />
-          <aside>
-            <h3>FREE FIRE</h3>
-            <p>Projeto mais antigo da plataforma ganha patrocínio,
+          <div>
+            <img src={capa} />
+            <aside>
+              <h3>FREE FIRE</h3>
+              <p>Projeto mais antigo da plataforma ganha patrocínio,
 e versão 6.4 será a final para lançamento.</p>
-          </aside>
+            </aside>
+
+          </div>
 
         </section>
         <section>
           <Background src={bg} />
         </section>
-        <section>
-          <Background src={bg} />
-        </section>
-        <section>
-          <Background src={bg} />
-        </section>
-        <section>
-          <Background src={bg} />
-        </section>
-        <section>
-          <Background src={bg} />
-        </section>
+
       </Slider>
     </Container>
   );

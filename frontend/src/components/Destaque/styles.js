@@ -11,23 +11,43 @@ export const Container = styled.div`
     height: 100%;
     width: 100%;
     overflow-x: hidden;
-  }
-  section aside{
+    div{
     color: #fff;
-    position: absolute;
-    top: 200;
-    left: 0;
-    z-index: 5;
-    float: left;
+    margin: 30px;
+    z-index: 10;
+    position: relative;
+    top:0;
+    
+    display: flex;
+    flex-direction: row;
+    
+    img{
+      width: 500px;
+    }
+    aside{
+      float: right;
+      padding: 50px;
+      h3{
+        font-size: 2.5em;
+      }
+      p{
+        margin-top: 20px;
+        font-size: 1.4em;
+      }
+    }
+    }
   }
-`;
+  
+  
+`
 export const Background = styled.img`
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  min-width: 1900px;
+  min-width: 500px;
   overflow-x: hidden;
+  z-index: 5;
   min-height: 200px;
   opacity: 0.4;
   

@@ -1,17 +1,10 @@
 const md5 = require('md5')
-const mysql = require('mysql');
 const crypto = require('crypto')
 const sharp = require('sharp')
 const fs = require('fs')
 const path = require('path')
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'dbgamecore'
-});
-
+const Imagem = require('../models/Imagem')
+const Usuario = require('../models/User')
 
 
 module.exports = {
@@ -27,28 +20,21 @@ module.exports = {
       .toFile(path.resolve(req.file.destination, 'resized', fileName));
 
     fs.unlinkSync(req.file.path);
-    connection.query(`INSERT INTO imagens (path) VALUES ('${fileName}')`);
-    connection.query(`SELECT * FROM imagens where path='${fileName}'`, (err, rows, fields) => {
-      const id_fotoperfil = rows[0].id
-      connection.query(`INSERT INTO usuario (nome, username, email,senha, id_fotoperfil) VALUES ('${nome}','${user}','${email}','${md5(pwd)}', '${id_fotoperfil}')`);
-    });
+    const img = await Imagem.create({ path: fileName })
+    await Usuario.create({ username: user, senha: md5(pwd), nome, email, id_fotoperfil: img.id })
+
 
 
     res.json({ cod: 201, resultado: 'Usuário cadastrado com sucesso' })
   },
-  async verifica(req, res) {
+  async index(req, res) {
     const { email, pwd } = req.body
-    connection.query(`SELECT * from usuario WHERE email='${email}' and senha='${md5(pwd)}'`, function (err, rows, fields) {
-      if (err) throw err;
-      if (rows.length == 0) {
-        res.json({ cod: 401, resultado: 'Login não autorizado' })
-      } else {
-        const id = rows[0].ID
-        var token = crypto.randomBytes(24).toString('hex');
-        connection.query(`INSERT INTO tokens (id_user,token, date) VALUES ('${id}', '${token}', '${new Date()}')`)
-        res.json({ cod: 200, resultado: token })
-      }
+    const user = Usuario.findOne({ where: { email, senha: md5(pwd) } })
+    if (user) {
+      res.json({ cod: 200, resultado: token })
+    } else {
+      res.json({ cod: 401, resultado: 'Login não autorizado' })
+    }
 
-    });
   }
 }
