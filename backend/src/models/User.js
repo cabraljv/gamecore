@@ -38,7 +38,7 @@ const User = sequelize.define('usuarios', {
   },
 
 }, {
-    // options
+    timestamps: true
   });
 
 module.exports = User;

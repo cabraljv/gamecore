@@ -1,44 +1,36 @@
-const mysql = require('mysql');
 const crypto = require('crypto')
 const sharp = require('sharp')
 const fs = require('fs')
 const path = require('path')
+const Imagem = require('../models/Imagem')
+const Post = require('../models/Post')
+const Token = require('../models/Token')
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'dbgamecore'
-});
 
 module.exports = {
   async insert(req, res) {
-    const { token, nome, tipo, descricao } = req.body
-    console.log(req.body)
-    const { filename: image } = req.file;
+    const { token, titulo, descricao, tipodojogo } = req.body
 
-    const [name] = image.split('.');
     var fileName = `${crypto.randomBytes(12).toString('hex')}.jpg`;
     await sharp(req.file.path)
       .jpeg({ quality: 100 })
       .toFile(path.resolve(req.file.destination, 'resized', fileName));
 
     fs.unlinkSync(req.file.path);
-    connection.query(`INSERT INTO imagens (path) VALUES ('${fileName}')`);
-    connection.query(`SELECT * FROM imagens where path='${fileName}'`, (err, rows, fields) => {
-      const id_pic = rows[0].id
-      connection.query(`SELECT * FROM tokens where token='${token}'`, (err, rows, fields) => {
-        if (rows.length > 0) {
-          const id_user = rows[0].id
-          connection.query(`INSERT INTO projeto (nome, tipodojogo, id_capa, id_user,descricao) VALUES ('${nome}','${tipo}','${id_pic}','${id_user}','${descricao}')`);
-          res.json({ cod: 201, resultado: 'Adicionado com sucesso' })
-        } else {
-          res.json({ cod: 300, resultado: 'Token inválido' })
-        }
-      })
-    });
+    await Imagem.create({ path: fileName })
+    const token2 = await Token.findOne({ where: { token } })
+    const image = await Imagem.findOne({ where: { path: fileName } })
+    if (token2 !== null) {
+      await Post.create({ tipodojogo, descricao, titulo, id_capa: image.dataValues.id, id_user: token2.dataValues.id_user })
+      console.log('Usuário adicionado com sucesso')
+      return res.json({ cod: 201, resultado: "Adicionado com sucesso" })
+    } else {
+      return res.json({ cod: 300, resultado: "Token inválido" })
+    }
+
+
   },
-  alter(req, res) {
+  index(req, res) {
 
   }
 }

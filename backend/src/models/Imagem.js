@@ -5,15 +5,18 @@ const sequelize = new Sequelize('dbgamecore', 'root', '', {
   dialect: 'mysql'
 });
 
-const Imagem = sequelize.define('usuarios', {
-
+const Imagem = sequelize.define('imagens', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true
+  },
   path: {
     type: Sequelize.STRING,
     allowNull: false
   },
 
 }, {
-    // options
+    timestamps: true
   });
 
 module.exports = Imagem;

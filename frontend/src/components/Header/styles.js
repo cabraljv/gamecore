@@ -6,7 +6,7 @@ export const Container = styled.div`
   height: 100px;
   float:top;
   
-  box-shadow: 0 10px 8px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 50px 8px 10px rgba(0, 0, 0, 0.2);
   header{
   }
   img{

@@ -5,28 +5,18 @@ const sequelize = new Sequelize('dbgamecore', 'root', '', {
   dialect: 'mysql'
 });
 
-const Comentario = sequelize.define('comentarios', {
+const Token = sequelize.define('token', {
 
-  conteudo: {
+  token: {
     type: Sequelize.STRING,
     allowNull: false
   },
   id_user: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  likes: {
     type: Sequelize.INTEGER,
     allowNull: false
   },
-  id_post: {
-    type: Sequelize.INTEGER,
-    allowNull: false
-  },
-
-
 }, {
     timestamps: true
   });
 
-module.exports = Comentario;
+module.exports = Token;
