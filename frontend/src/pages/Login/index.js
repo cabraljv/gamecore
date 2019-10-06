@@ -23,7 +23,7 @@ export default class Login extends Component {
 
             </form>
           </div>
-          <a>Não tem conta ? Cadastre-se</a>
+          <a href="/cadastrar">Não tem conta ? Cadastre-se</a>
         </Container>
       </>
     );
