@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/gamecore/static/css/main.8dbc1575.chunk.css",
+    "main.js": "/gamecore/static/js/main.dde1cc94.chunk.js",
+    "main.js.map": "/gamecore/static/js/main.dde1cc94.chunk.js.map",
+    "runtime~main.js": "/gamecore/static/js/runtime~main.6202f0b2.js",
+    "runtime~main.js.map": "/gamecore/static/js/runtime~main.6202f0b2.js.map",
+    "static/js/2.f9f9e506.chunk.js": "/gamecore/static/js/2.f9f9e506.chunk.js",
+    "static/js/2.f9f9e506.chunk.js.map": "/gamecore/static/js/2.f9f9e506.chunk.js.map",
+    "index.html": "/gamecore/index.html",
+    "precache-manifest.6f90c34ad12d2d3a62b38513e0dbb066.js": "/gamecore/precache-manifest.6f90c34ad12d2d3a62b38513e0dbb066.js",
+    "service-worker.js": "/gamecore/service-worker.js",
+    "static/css/main.8dbc1575.chunk.css.map": "/gamecore/static/css/main.8dbc1575.chunk.css.map",
+    "static/media/capa.png": "/gamecore/static/media/capa.41cb0e04.png",
+    "static/media/destaque.png": "/gamecore/static/media/destaque.476ec975.png",
+    "static/media/logo.svg": "/gamecore/static/media/logo.2b391072.svg",
+    "static/media/perfil.jpg": "/gamecore/static/media/perfil.550f49a4.jpg"
+  }
+}
