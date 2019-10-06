@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
 });
 
 module.exports = {
-  async insert(req, res) {
+  async store(req, res) {
     const { conteudo, id_post, token } = req.body
     connection.query(`SELECT * FROM tokens where token='${token}'`, (err, rows, fields) => {
       if (rows.length > 0) {

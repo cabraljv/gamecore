@@ -8,7 +8,7 @@ const Token = require('../models/Token')
 
 
 module.exports = {
-  async insert(req, res) {
+  async store(req, res) {
     const { token, titulo, descricao, tipodojogo } = req.body
 
     var fileName = `${crypto.randomBytes(12).toString('hex')}.jpg`;

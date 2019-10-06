@@ -4,11 +4,9 @@ export const Container = styled.div`
   width: 100%;
   background: #575757;
   height: 100px;
-  float:top;
-  
-  box-shadow: 0 50px 8px 10px rgba(0, 0, 0, 0.2);
-  header{
-  }
+  z-index: 2;
+  box-shadow: 0 5px 8px 10px rgba(0, 0, 0, 0.3);
+  min-width: 870px;
   img{
     width: 270px;
     margin-top: 30px;
