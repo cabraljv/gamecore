@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gamecore",
+  "private_key_id": "ec43971340fff1ddb72664f2d14fd7b51378edd6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQC2ArSkV1RcQP3J\nCby6KC3gP5Cbail+B8hPYwaHoswfvmjhEZ2hbvfXYeVpBsplY7ppP9g05PwcaCP6\njkcJq/C1P1z0l4kVRtRkBTvWuAyKQrnPC/lbjgxDAV2atlSssO148jeLHb9dpjBk\nvEfG+UmayuUds9jiePuEgfoKkizEhm24u+TKVQrf2Feo/MWhaDYsXEgqeoqHHEwl\npu+nQbaBnfd9ylZ+7XICDzlRu4d/5tckkr2rltsGu6RlKofhfwHJ0NXfX3WZqKjd\n9PlJqLvTHNwnpymnfASgTQ4265i/shIA9DurjERtmmvtvvEyf7mCyjlrVEqTRPa/\nV+cjDOObAgMBAAECggEAAfqQjTLX23Lnb26YKyvxp7z5LP9f+RtLjbVlZkcaUgQH\nbt76qD0lG6XYUSZ+P9DwP2Guz5Bnv0VQktJGKnBAmy/Xql8VYfJVr8qwxlpU5JHq\nJDqcmOa38miK5Hoz/Hal9kkn2m7V3EZIw2eaniqqprCrAgIpCvlGvr+NAN1q+C37\nOVfwD0LRHxGfJICw/+f6wrf5GHtkQChlbM6ngMchTON+nnoh5dreremv3I5NKLhs\ngFsL93+w82qNOHwVWjffqxCGBg9WpC0K/YDqZN7J0f5Gz2iklVb6IanHOpyJZqEZ\nxKa2RKk7Lqui7z67S4JHQQWVxA7Dx8D0EltsrySk1QKBgQD329kzIFXZ6jVZXoGy\nVeedKYT+jBSktIAV5bEmMgdhY1gHwrB2tE63MZkBlRZh08vtcwNmpcndNeZViBTC\n6FbwEJ/7hEKCantLWgntnAypKz9uoq9HBdcQAR+5IeCbGpYy99a6dd0F1LcjIBRl\n80pssLU7Bejk9Hy9fdm9lVF39wKBgQC7/SoMrLxnbyv9WReMheVSKHu7tkvD2exO\nP+59T6IkPzj/utTBE3Yd4QmcbsxpwGAtgCOdP8VI3thQG6xfuPDHMPKppBmk2iMQ\nydXiQZMznCcnkb2AjJqL1gCjcudqc+JrnEFIqnTqMo2N1MrdzJDToRh7vW/ESedd\nnO+BjrEwfQKBgEuLd6UMmv4jU4Vct70qT8DoMb//5B7bYRrLenYA050MUX10CqLz\ni/ZsKI2B6mOA0WwbHRNBPsisr/qr0mAhvrXG62wWwMrNN60c0V/Zq0Y4h0nqTfAg\nyI75OLkNqU69CMCaJ5mHaQlo7zTGh1EXmTyNk39c6sI1/nsnC6GsDDu7An9aUkjh\nzhy3lbKNB0FJQwvrbYgFqJC+iPYAorbzfk9pGvdH53xRSAh4UqdLgfC03rlXIzn5\nU6p2WJuV4bXwR+tnyRzOZQntKuGuL0uUae1P3rbxTBTArs2SYj/sSEjn3MXs7iZv\nw3ZpD+DzREo0RxVOmRgqW9pXdSq0z7JDjUuVAoGBAKqvWMOqWqd7S105eNyGGV81\nno9uwlFQVEGCZkq3pJA8T1zlwae31INrwHF5mHMtDt25+39fYdM1MYgB1SaY6uK5\nD/H5/dKHgBdh/ZgR+1wWZBKXaUxJZ4iGeCgAOclstSpwls/Q1ppV8K5Coy+Q0IMn\nlul9fK99Ho5C0ca425g3\n-----END PRIVATE KEY-----\n",
+  "client_email": "gamecore-images@gamecore.iam.gserviceaccount.com",
+  "client_id": "101078084333300992943",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gamecore-images%40gamecore.iam.gserviceaccount.com"
+}

@@ -1,20 +1,51 @@
 const express = require('express')
-const multer = require('multer')
 const routes = express.Router()
-const uploadConfig = require('./config/upload')
-const UserController = require('./Controllers/UserController')
-const DestaqueController = require('./Controllers/DestaqueController')
-const PostController = require('./Controllers/PostController')
-const upload = multer(uploadConfig);
+const UserController = require('./controllers/UserController')
+const ProjectController = require('./controllers/ProjectController')
+const multer = require('multer');
+const jwt = require('jsonwebtoken')
+const gcsSharp = require('multer-sharp');
+const storage = gcsSharp({
+  bucket: 'gamecore-images',
+  projectId: 'gamecore',
+  keyFilename: 'gamecore-ec43971340ff.json',
+  destination: 'public/image',
+  acl: 'publicRead',
+});
+const CommentController = require('./controllers/CommentController')
+const HighlightController = require('./controllers/HighlightController')
+const upload = multer({ storage });
+
+function verifyToken(req, res, next) {
+  // Get auth header value
+  const bearerHeader = req.headers.authorization;
+
+  // Check if bearer is undefined
+  if (typeof bearerHeader !== 'undefined') {
+    // Split at the space
+
+    req.token = bearerHeader;
+    // Next middleware
+    next();
+  } else {
+    // Forbidden
+    res.sendStatus(403);
+  }
+
+}
 routes.get('/', (req, res) => {
   res.send('GameCore Backend OK')
 })
+routes.post('/user', upload.single('profile_pic'), UserController.store)
 
+routes.post('/user/login', UserController.index)
 
-routes.post('/user', upload.single('profile_pic'), UserController.insert)
-routes.get('/user/login', UserController.index)
-routes.post('/post', upload.single('image'), PostController.insert)
-//router.post('/comment', CommentController.insert)
-routes.post('/destaque', upload.fields([{ name: 'capa' }, { name: 'img' }]), DestaqueController.store)
-routes.get('/destaque', DestaqueController.index)
+routes.post('/project', verifyToken, upload.single('cover_img'), ProjectController.store)
+routes.post('/highlight', upload.fields([{ name: 'cover_img' }, { name: 'project_img' }]), HighlightController.store);
+routes.post('/comment', verifyToken, CommentController.store)
+routes.get('/highlight', HighlightController.index)
+/*
+//
+
+*/
 module.exports = routes

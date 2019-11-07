@@ -1,22 +1,17 @@
-const mysql = require('mysql');
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'dbgamecore'
-});
+const Comment = require('../models/Comment');
+const jwt = require('jsonwebtoken')
+
 
 module.exports = {
   async store(req, res) {
-    const { conteudo, id_post, token } = req.body
-    connection.query(`SELECT * FROM tokens where token='${token}'`, (err, rows, fields) => {
-      if (rows.length > 0) {
-        const id_user = rows[0].id
-        connection.query(`INSERT INTO comentario (conteudo, id_user, id_post) VALUES ('${conteudo}','${id_user}','${id_post}')`);
-        res.json({ cod: 201, resultado: 'Adicionado com sucesso' })
-      } else {
-        res.json({ cod: 300, resultado: 'Token inválido' })
-      }
-    })
+    const { content, project_id } = req.body
+    try {
+      const user = await jwt.verify(req.token, 'g4m3c0r32oi9');
+      await Project.create({ content, user_id: user.id, project_id })
+      res.json({ cod: 201, response: "Comment created" })
+    } catch (err) {
+      res.json({ cod: 401, response: err.message })
+    }
+
   }
 }

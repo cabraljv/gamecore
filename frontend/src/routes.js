@@ -7,7 +7,7 @@ import Cadastro from './pages/Cadastro';
 
 export default function Routes() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/gamecore" >
       <Route path='/' exact component={Main} />
       <Route path='/login' component={Login} />
       <Route path='/cadastrar' component={Cadastro} />

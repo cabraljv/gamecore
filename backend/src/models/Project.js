@@ -1,41 +1,44 @@
 const Sequelize = require('sequelize')
-
+const User = require('./User')
 const sequelize = new Sequelize('dbgamecore', 'postgres', 'toor', {
   dialect: 'postgres',
   host: 'localhost'
 })
 
-const User = sequelize.define('users', {
+const Projects = sequelize.define('projects', {
 
-  name: {
+  title: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  username: {
+  type: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  passwd: {
+  content: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  email: {
+  description: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  specialty: {
+  cover_img: {
     type: Sequelize.STRING,
+    allowNull: false
   },
-  score: {
+  user_id: {
     type: Sequelize.INTEGER,
+    allowNull: false,
+    references: {
+      model: User,
+      key: 'id'
+    }
   },
-  profile_pic: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
+
 
 }, {
-  timestamps: false
+  timestamps: true
 });
 
-module.exports = User;
+module.exports = Projects;
