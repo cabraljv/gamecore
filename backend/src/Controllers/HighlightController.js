@@ -8,15 +8,6 @@ module.exports = {
     for (let i = 0; i < highlights.length; i++) {
       result = [...result, highlights[i].dataValues]
     }
-
-
-
-
-
-
-
-
-    
     res.json(result)
   },
   async store(req, res) {

@@ -8,7 +8,7 @@ module.exports = {
     await Usuario.create({ username, passwd: md5(passwd), name, email, profile_pic: req.file.path, score: 0, specialty })
     res.json({ cod: 201, response: "User created" })
   },
-  async index(req, res) {
+  async show(req, res) {
     const { passwd, email } = req.body
     const user = await Usuario.findAll({
       where: {
@@ -19,8 +19,6 @@ module.exports = {
     if (user[0] === undefined) {
       res.json({ cod: 401, response: "Invalid credentials" })
     } else {
-      console.log()
-      
       
       const token = await jwt.sign(user[0].dataValues, 'g4m3c0r32oi9', { expiresIn: '48h' });
       res.json({ cod: 200, response: token })
