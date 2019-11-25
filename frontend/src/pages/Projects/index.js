@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import logo from '../../assets/projectslogo.png'
+
 import { Container } from './styles';
 import profile_pic from '../../assets/profile_pic.png'
 import Destaque from '../../components/Destaque'
@@ -8,6 +8,7 @@ import ItemsList from '../../components/ItemsList';
 import csgo from '../../assets/csgo.jpg'
 import lol from '../../assets/lol.jpg'
 import fortnite from '../../assets/fortnite.jpg'
+import NavBarProjects from '../../components/NavBarProjects';
 
 export default class Projects extends Component {
   state = {
@@ -53,22 +54,7 @@ export default class Projects extends Component {
   render() {
     return (
       <Container>
-        <nav>
-          <img src={logo} />
-          <ul>
-            <li><a className="ativo" href="/">SOBRE</a></li>
-            <li><a href="/">PROJETOS</a></li>
-            <li><a href="/">EM ALTA</a></li>
-            <li><a href="/">APRENDIZADO</a></li>
-          </ul>
-          <div>
-            <section>
-              <img src={profile_pic} />
-              <p>cabraljv</p>
-            </section>
-            <label></label>
-          </div>
-        </nav>
+        <NavBarProjects />
         <header>
           <Destaque />
         </header>

@@ -16,7 +16,7 @@ export default class Main extends Component {
   render() {
     return (
       <>
-        <NavBar />
+        <NavBar porps={this.props} />
         <Container>
           <header>
             <aside>

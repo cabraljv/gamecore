@@ -2,20 +2,31 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   text-align: center;
+  background-image: url(${require('../../assets/bg_login.png')});
+  padding-top: 30px;
+  min-height: 80vh;
   a{
     color: #fff;
+    text-decoration: none;
   }
   
   div{
-    width: 40%;
-    background: #fff;
-    margin: 40px auto;
-    border-radius: 5px;
+    width: 35%;
+    background: #333;
+
+    margin: 30px auto;
+    border-radius: 10px;
+    border: 5px solid #fff;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
     text-align: center;
+    margin-top: 0;
     h2{
-      font-size: 1.5em;
-      color: #00B3FC;
-      padding: 30px;
+      font-size: 2.4em;
+      color: #fff;
+      padding-top: 30px;
+      font-family: Economica;
+      font-style: italic;
+      font-weight: normal;
     }
     form{
       text-align: center;
@@ -26,9 +37,9 @@ export const Container = styled.div`
       
     }
     form label{
-      color: #00B3FC;
+      color: #fff;
       font-size: 1.1em;
-      font-weight: 500;
+      font-family: Economica;
       display: block;
       margin-top: 10px;
       float: left;
@@ -46,7 +57,8 @@ export const Container = styled.div`
       width: 100%;
       margin: auto;
       flex-flow: column;
-      
+      border: 0;
+      box-shadow: none;
 
       section{
         
@@ -67,17 +79,20 @@ export const Container = styled.div`
     form div{
       width: 100%;
       margin: 30px auto;
+      border: 0;
+      box-shadow: none;
     }
     form button{
-      background: #00B3FC;
+      background: #fff;
       border: 0;
       border-radius: 5px;
       padding: 8px 15px;
       cursor: pointer;
       
       p{
-        color: #fff;
-        font-size: 1.3em;
+        color: #000;
+        font-size: 2em;
+        font-family: Economica;
         font-weight: 500;
       }
     }

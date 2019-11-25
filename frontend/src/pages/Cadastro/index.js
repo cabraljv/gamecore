@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Container, } from './styles';
-import Header from '../../components/Header';
+import NavBar from '../../components/NavBar';
 
 export default class Cadastro extends Component {
   render() {
     return (
       <>
-        <Header />
+        <NavBar />
         <Container>
 
           <div>

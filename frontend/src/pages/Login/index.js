@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Container, } from './styles';
-import Header from '../../components/Header';
-
+import NavBar from '../../components/NavBar';
+import bg from '../../assets/bg_login.png'
 export default class Login extends Component {
   render() {
     return (
       <>
-        <Header />
+        <NavBar />
         <Container>
 
           <div>

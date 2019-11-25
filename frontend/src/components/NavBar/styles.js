@@ -30,6 +30,10 @@ export const Container = styled.div`
           font-family: Economica;
           color: #fff;
           font-size: 1.4em;
+          cursor: pointer;
+        }
+        a:hover{
+          color: #ddd;
         }
         a.ativo{
           border-bottom: 2px solid #fff;
@@ -51,10 +55,10 @@ export const Container = styled.div`
       
     }
     button{
-      height: 60%;
+
       margin: auto;
-      width: 130px;
       background: #fff;
+      height: 50%;
       border: none;
       border-radius: 10px;
       color: #000;
@@ -63,6 +67,11 @@ export const Container = styled.div`
       font-weight: bold;
       box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
       cursor: pointer;
+      a{
+        text-decoration: none;
+        padding: 50% 30px ;
+        color: #333;
+      }
     }
     button:hover{
       background: #f5f5f5;

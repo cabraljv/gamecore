@@ -22,7 +22,10 @@ export default class ItemsList extends Component {
           dots={false}
           infinite={true}
           slidesToShow={this.props.items_show}
-          slidesToScroll={1} >
+          slidesToScroll={1}
+          autoplay
+          autoplaySpeed={5000}
+        >
           {this.state.data.map((itm, index) => (
 
             < section key={index} >
