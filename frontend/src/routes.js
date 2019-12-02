@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
 import Projects from './pages/Projects';
 import NewProject from './pages/NewProject';
+import ProjectPage from './pages/ProjectPage';
 
 export default function Routes() {
   return (
@@ -16,6 +17,7 @@ export default function Routes() {
         <Route path='/login' component={Login} />
         <Route path='/cadastrar' component={Cadastro} />
         <Route path='/projects/new' component={NewProject} />
+        <Route path='/projects/:id' component={ProjectPage} />
       </Switch>
     </BrowserRouter>
   );

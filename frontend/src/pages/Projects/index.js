@@ -9,9 +9,11 @@ import csgo from '../../assets/csgo.jpg'
 import lol from '../../assets/lol.jpg'
 import fortnite from '../../assets/fortnite.jpg'
 import NavBarProjects from '../../components/NavBarProjects';
+import api from '../../services/api'
 
 export default class Projects extends Component {
   state = {
+    top: [],
     data: [
       {
         img: csgo,
@@ -51,6 +53,17 @@ export default class Projects extends Component {
       },
     ]
   }
+  async componentDidMount() {
+    const token = await localStorage.getItem('token')
+    if (!token) {
+      alert('Você precisa estar logado')
+      this.props.history.push('/login')
+    }
+    const req = await api.get('/user/topdev');
+    const { cod, response } = req.data;
+    this.setState({ top: response })
+
+  }
   render() {
     return (
       <Container>
@@ -66,46 +79,16 @@ export default class Projects extends Component {
           </section>
           <section id="top_dev" >
             <h3>Ranking 2019</h3>
-            <div>
-              <p>1º</p>
-              <img src={profile_pic} />
-              <span>
-                <p>João Victor Cabral</p>
-                <p>1223 pontos</p>
-              </span>
-            </div>
-            <div>
-              <p>2º</p>
-              <img src={profile_pic} />
-              <span>
-                <p>João Victor Cabral</p>
-                <p>1223 pontos</p>
-              </span>
-            </div>
-            <div>
-              <p>3º</p>
-              <img src={profile_pic} />
-              <span>
-                <p>João Victor Cabral</p>
-                <p>1223 pontos</p>
-              </span>
-            </div>
-            <div>
-              <p>4º</p>
-              <img src={profile_pic} />
-              <span>
-                <p>João Victor Cabral</p>
-                <p>1223 pontos</p>
-              </span>
-            </div>
-            <div>
-              <p>5º</p>
-              <img src={profile_pic} />
-              <span>
-                <p>João Victor Cabral</p>
-                <p>1223 pontos</p>
-              </span>
-            </div>
+            {this.state.top.map((user, index) => (
+              <div key={index}>
+                <p>{index + 1}º</p>
+                <img src={user.profile_pic} />
+                <span>
+                  <p>{user.name}</p>
+                  <p>{user.score} pontos</p>
+                </span>
+              </div>
+            ))}
           </section>
 
         </section>

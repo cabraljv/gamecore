@@ -14,6 +14,7 @@ export const Container = styled.nav`
       display: flex;
       margin-top: 60px;
       margin-left: 50px;
+      
       li{
         padding: 10px;
         a{
@@ -27,6 +28,14 @@ export const Container = styled.nav`
         }
         a.ativo{
           border-bottom: 2px solid #fff;
+        }
+      }
+      li#btnNovo{
+        
+        a{
+          color: #333;
+          background: #fff;
+          border-radius: 5px;
         }
       }
     }

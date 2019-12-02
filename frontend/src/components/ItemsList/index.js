@@ -14,7 +14,6 @@ export default class ItemsList extends Component {
     data: this.props.data,
   }
 
-
   render() {
     return (
       <Container>

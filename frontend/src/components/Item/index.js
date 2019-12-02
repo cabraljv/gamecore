@@ -15,7 +15,7 @@ export default class Item extends Component {
         <p>{this.state.data.title}</p>
         <span>
           <p>Versão: {this.state.data.vesion}</p>
-          <p>Likes: {this.state.data.likes}</p>
+          <p>Seguidores: {this.state.data.likes}</p>
         </span>
       </Container>
     );

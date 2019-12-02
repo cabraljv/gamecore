@@ -4,8 +4,13 @@ import logo from '../../assets/projectslogo.png'
 import { Container } from './styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import api from '../../services/api'
+
 export default function NavBarProjects() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const loadUser = async () => {
+
+  }
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -21,6 +26,7 @@ export default function NavBarProjects() {
         <li><a className="ativo" href="/">PROJETOS</a></li>
         <li><a href="/">EM ALTA</a></li>
         <li><a href="/">APRENDIZADO</a></li>
+        <li id='btnNovo'><a href="/projects/new">NOVO PROJETO</a></li>
       </ul>
       <div aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         <section>
