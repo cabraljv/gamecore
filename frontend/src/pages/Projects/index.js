@@ -16,40 +16,40 @@ export default class Projects extends Component {
     top: [],
     data: [
       {
-        img: csgo,
+        id: 2,
+        logo: csgo,
         title: 'Counter Strike: Global Offencive',
-        version: "1.3",
-        likes: 3452324,
+
       },
       {
-        img: lol,
+        id: 3,
+        logo: lol,
         title: 'League of Legends',
-        version: "1.3",
-        likes: 3452324,
+
       },
       {
-        img: fortnite,
+        id: 4,
+        logo: fortnite,
         title: 'Fortnite',
-        version: "1.3",
-        likes: 3452324,
+
       },
       {
-        img: csgo,
+        id: 5,
+        logo: csgo,
         title: 'Counter Strike: Global Offencive',
-        version: "1.3",
-        likes: 3452324,
+
       },
       {
-        img: fortnite,
+        id: 6,
+        logo: fortnite,
         title: 'Fortnite',
-        version: "1.3",
-        likes: 3452324,
+
       },
       {
-        img: lol,
+        id: 7,
+        logo: lol,
         title: 'League of Legends',
-        version: "1.3",
-        likes: 3452324,
+
       },
     ]
   }
@@ -62,12 +62,17 @@ export default class Projects extends Component {
     const req = await api.get('/user/topdev');
     const { cod, response } = req.data;
     this.setState({ top: response })
+    const req2 = await api.get('/projects/all', { headers: { authorization: token } })
+    const { response: response2, cod: cod2 } = req2.data;
+    console.log(response2)
+    this.setState({ data: response2 })
 
   }
   render() {
     return (
       <Container>
         <NavBarProjects />
+
         <header>
           <Destaque />
         </header>

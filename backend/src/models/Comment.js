@@ -15,10 +15,6 @@ const Comentario = sequelize.define('comments', {
   user_id: {
     type: Sequelize.STRING,
     allowNull: false,
-    references: {
-      model: User,
-      key: 'id'
-    }
   },
   likes: {
     type: Sequelize.INTEGER,
@@ -27,10 +23,7 @@ const Comentario = sequelize.define('comments', {
   project_id: {
     type: Sequelize.INTEGER,
     allowNull: false,
-    references: {
-      model: Project,
-      key: 'id'
-    }
+
   },
 
 

@@ -11,6 +11,12 @@ export default class Login extends Component {
     this.state = { email: "", passwd: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  async componentDidMount() {
+    const token = await localStorage.getItem('token')
+    if (token) {
+      this.props.history.push('/projects')
+    }
+  }
   async handleSubmit() {
     const req = await api.post('/user/login', {
       email: this.state.email,
@@ -21,6 +27,8 @@ export default class Login extends Component {
       localStorage.setItem('token', response)
       this.props.history.push('/projects')
 
+    } else {
+      alert('Email ou senha inválidos')
     }
   }
   render() {
@@ -29,7 +37,6 @@ export default class Login extends Component {
       <>
         <NavBar />
         <Container>
-
           <div>
             <h2>Login</h2>
             <form >

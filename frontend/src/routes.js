@@ -10,7 +10,7 @@ import ProjectPage from './pages/ProjectPage';
 
 export default function Routes() {
   return (
-    <BrowserRouter basename="/gamecore" >
+    <BrowserRouter basename="/" >
       <Switch>
         <Route path='/' exact component={Main} />
         <Route path='/projects' exact component={Projects} />

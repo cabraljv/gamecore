@@ -13,6 +13,9 @@ export default class ItemsList extends Component {
     autoplaySpeed: 5000,
     data: this.props.data,
   }
+  componentDidMount() {
+    console.log(this.state.data)
+  }
 
   render() {
     return (

@@ -21,7 +21,6 @@ export default class Destaque extends Component {
   async componentDidMount() {
     const response = await api.get('highlight');
     this.setState({ destaques: response.data })
-    console.log(response.data)
 
   }
   render() {
@@ -33,7 +32,7 @@ export default class Destaque extends Component {
               <Background bg={item.cover_img}>
                 <img src={item.project_img} />
                 <aside>
-                  <h3>{item.title + "  " + index}</h3>
+                  <h3>{item.title}</h3>
                   <p>{item.description}</p>
                 </aside>
               </Background>

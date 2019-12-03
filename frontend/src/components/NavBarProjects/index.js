@@ -1,5 +1,4 @@
-import React from 'react';
-import profile_pic from '../../assets/profile_pic.png'
+import React, { useEffect } from 'react';
 import logo from '../../assets/projectslogo.png'
 import { Container } from './styles';
 import Menu from '@material-ui/core/Menu';
@@ -8,20 +7,39 @@ import api from '../../services/api'
 
 export default function NavBarProjects() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const loadUser = async () => {
+  const [userLoged, setUserLoged] = React.useState({ profile_pic: '', username: '' });
 
+
+  const getUser = async () => {
+    const token = await localStorage.getItem('token')
+    const req = await api.get('/user/profile', { headers: { authorization: token } })
+    const { cod, response } = req.data;
+    return response;
   }
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
-
+  const onLogout = async () => {
+    localStorage.removeItem('token')
+    window.location.href = '/'
+  }
   const handleClose = () => {
     setAnchorEl(null);
   };
+  useEffect(() => {
+    async function aabdcd() {
+      setUserLoged(await getUser());
+    }
+    aabdcd();
+    // Execute the created function directly
+
+
+  }, [])
   return (
     <Container>
       <img src={logo} />
       <ul>
+
         <li><a href="/">SOBRE</a></li>
         <li><a className="ativo" href="/">PROJETOS</a></li>
         <li><a href="/">EM ALTA</a></li>
@@ -30,8 +48,8 @@ export default function NavBarProjects() {
       </ul>
       <div aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         <section>
-          <img src={profile_pic} />
-          <p>cabraljv</p>
+          <img src={userLoged.profile_pic} />
+          <p>{userLoged.username}</p>
         </section>
         <label></label>
       </div>
@@ -44,8 +62,7 @@ export default function NavBarProjects() {
         style={{ marginTop: 50 }}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={onLogout}>Logout</MenuItem>
       </Menu>
     </Container>
   );

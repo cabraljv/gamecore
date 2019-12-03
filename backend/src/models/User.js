@@ -31,7 +31,7 @@ const User = sequelize.define('users', {
   },
   profile_pic: {
     type: Sequelize.STRING,
-    allowNull: false
+
   },
 
 }, {

@@ -5,7 +5,7 @@ module.exports = {
   async store(req, res) {
     const { username, passwd, name, email, specialty } = req.body
 
-    await Usuario.create({ username, passwd: md5(passwd), name, email, profile_pic: req.file.path, score: 0, specialty })
+    await Usuario.create({ username, passwd: md5(passwd), name, email, score: 0, specialty })
     res.json({ cod: 201, response: "User created" })
   },
 

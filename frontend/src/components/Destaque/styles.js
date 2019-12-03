@@ -23,7 +23,7 @@ export const Background = styled.div`
     width: 35%;
     min-width: 250px;
     margin: 50px;
-    
+    border-radius: 10px;
     
   }
   aside{
