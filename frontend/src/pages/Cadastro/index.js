@@ -10,7 +10,7 @@ export default class Cadastro extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   async handleSubmit() {
-    if (this.state.email === "") {
+    if (this.state.email === "" && this.state.passwd === "" & this.state.passwd !== this.state.repasswd) {
       alert('Preenxa todos os campos')
     } else {
       const req = await api.post('/user', {

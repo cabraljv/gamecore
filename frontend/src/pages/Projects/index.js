@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 
 import { Container } from './styles';
-import profile_pic from '../../assets/profile_pic.png'
 import Destaque from '../../components/Destaque'
 import ItemsList from '../../components/ItemsList';
 import csgo from '../../assets/csgo.jpg'
