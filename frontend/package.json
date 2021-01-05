@@ -5,7 +5,7 @@
   "homepage": "http://cabraljv.github.io/gamecore",
   "dependencies": {
     "@material-ui/core": "^4.7.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
     "react-burger-menu": "^2.6.12",
